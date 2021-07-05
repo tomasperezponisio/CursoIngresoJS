@@ -1,7 +1,9 @@
 function mostrar()
 {
 	//tomo la edad  
-	alert("ok");
+	if (txtIdEdad.value > 17 && estadoCivil.value == "Soltero") {
+		alert("Es soltero y no es menor");
+	}
 	
 
 
