@@ -17,5 +17,5 @@ function mostrarAumento()
 	descuento = importe * 0.25;
 	resultado = importe - descuento;
 
-	document.getElementById('txtIdResultado').value = resultado;	
+	document.getElementById('txtIdResultado').value = resultado;
 }
