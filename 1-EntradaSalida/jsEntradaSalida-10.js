@@ -1,6 +1,6 @@
 /*
 autor: Tomas Perez Ponisio
-ejercicio: 10
+ejercicio: 10bis
 Debemos lograr tomar el importe por ID.
 Transformarlo a entero (parseInt), luego
 mostrar el importe con un Descuento del 25 %
@@ -10,11 +10,14 @@ function mostrarAumento()
 	var importe;
 	var descuento;
 	var resultado;
+	var descuentoPorcentaje;
 
 	importe = document.getElementById('txtIdImporte').value;
 	importe = parseInt(importe);
 
-	descuento = importe * 0.25;
+	descuentoPorcentaje = prompt("Qué descuento le damos?", 25);
+
+	descuento = importe * descuentoPorcentaje / 100;
 	resultado = importe - descuento;
 
 	document.getElementById('txtIdResultado').value = resultado;
