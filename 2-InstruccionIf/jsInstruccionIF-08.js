@@ -1,10 +1,21 @@
+/*
+autor: Tomas Perez Ponisio
+ejercicio: IF 08
+*/
+
 function mostrar()
 {
-	//tomo la edad  
-	if (txtIdEdad.value > 17 && estadoCivil.value == "Soltero") {
-		alert("Es soltero y no es menor");
-	}
-	
+	var edadIngresada;
+	var estadoCivil;
+	var mensaje;
 
+	edadIngresada = document.getElementById('txtIdEdad').value;
+	estadoCivil = document.getElementById('estadoCivil').value;
+	mensaje = "Es soltero y no es menor";
+
+	//tomo la edad  
+	if ( edadIngresada > 17 && estadoCivil == "Soltero" ) {
+		alert(mensaje);
+	}
 
 }//FIN DE LA FUNCIÓN
