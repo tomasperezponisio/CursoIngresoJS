@@ -1,4 +1,7 @@
-/*Al comenzar el juego generamos un número 
+/*
+autor: Tomas Perez Ponisio
+ejercicio: TP 5 - Adivina el número v1.0 (IF/SWITCH)
+Al comenzar el juego generamos un número 
 secreto del 1 al 100, en la pantalla del juego
  dispondremos de un cuadro de texto para ingresar
   un número y un botón “Verificar”, si el número 
@@ -12,15 +15,62 @@ var contadorIntentos;
 
 function comenzar()
 {
-	//Genero el número RANDOM entre 1 y 100
-	 
-		//alert(numeroSecreto );
-	
+	//Genero el número RANDOM entre 1 y 100	
+	var mensaje;
 
+	document.getElementById('txtIdNumero').value = ""; // reseteo el número ingresado en casa de hacer otra ronda sin darle f5
+
+	contadorIntentos = 0;
+	document.getElementById('txtIdIntentos').value = contadorIntentos;
+	
+	numeroSecreto = Math.floor(Math.random() * 100) + 1;
+
+	mensaje = "Numero secreto generado";
+
+	setTimeout(function()
+		{
+			alert(mensaje);
+		}, 10);
 }
 
 function verificar()
 {
+	var numeroIngresado;
+	var mensaje;
+		
+	numeroIngresado = document.getElementById('txtIdNumero').value;
+	numeroIngresado = parseInt(numeroIngresado);
 	
-	
+	if (numeroIngresado) // si ingresaron un número para verificar sigo...
+	{
+		if (numeroIngresado == numeroSecreto)
+		{
+			contadorIntentos += 1;		
+			mensaje = "Usted es el ganador! y en solo " + contadorIntentos + " intentos.";
+		}
+		else
+		{
+			if (numeroIngresado < numeroSecreto)
+			{
+				contadorIntentos += 1;
+				mensaje = "falta...";			
+			}
+			else
+			{
+				contadorIntentos += 1;	
+				mensaje = "te pasaste...";			
+			}
+		}
+	}
+	else // no ingresó número para verificar, se lo vuelvo a pedir
+	{
+		mensaje = "Ingrese un número para verificar";
+	}	
+
+	document.getElementById('txtIdIntentos').value = contadorIntentos;
+
+	setTimeout(function() // delay para actualizar el contador antes de tirar el alert
+		{
+			alert(mensaje);
+		}, 10);	
 }
