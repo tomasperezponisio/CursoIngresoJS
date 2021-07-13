@@ -15,13 +15,18 @@ function mostrar()
 	if (nota > 8) {
 		mensaje = "Te sacaste un: " + nota + " // Excelente";
 	}
-	if (nota > 3 && nota < 9) {
-		mensaje = "Te sacaste un: " + nota + " // Aprobaste";
+	else
+	{
+		if (nota > 3)
+		{
+			mensaje = "Te sacaste un: " + nota + " // Aprobaste";
+		}
+		else
+		{
+			mensaje = "Te sacaste un: " + nota + " // Vamos, la próxima se puede";	
+		}
 	}
-	if (nota < 4) {
-		mensaje = "Te sacaste un: " + nota + " // Vamos, la próxima se puede";
-	}
-
+	
 	alert(mensaje);	
 
 }//FIN DE LA FUNCIÓN
