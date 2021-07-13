@@ -9,15 +9,16 @@ function mostrar()
 	var edadIngresada;
 
 	edadIngresada = document.getElementById('txtIdEdad').value;
+	edadIngresada = parseInt(edadIngresada);
 
 	//tomo la edad  
 	if ( edadIngresada < 13 ) {
 		mensaje = "Sos niño";
 	}
-	if ( edadIngresada >= 13 && edadIngresada <= 17) {
+	if ( edadIngresada > 12 && edadIngresada < 18) {
 		mensaje = "Sos adolescente";
 	}
-	if ( edadIngresada >= 18 ) {
+	if ( edadIngresada > 17 ) {
 		mensaje = "Sos mayor de edad";
 	}
 

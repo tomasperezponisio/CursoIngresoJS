@@ -4,90 +4,106 @@ function mostrar()
 	var estacionIngresada;
 	var mensaje;
 	var tarifa;
+	var aumentoPorcentaje;
+	var descuentoPorcentaje;
 	var aumento;
 	var descuento;
+	var tarifaFinal;
 
 	destinoIngresado = document.getElementById('txtIdDestino').value;
 	estacionIngresada = document.getElementById('txtIdEstacion').value;
+
 	tarifa = 15000;
-	aumento = 0;
-	descuento = 0;
+	aumentoPorcentaje = 0;
+	descuentoPorcentaje = 0;
 
 	switch(estacionIngresada) {
 		case "Invierno" : {
 			switch(destinoIngresado) {
 				case "Bariloche" : {
-					aumento = 20;
-					descuento = 0;
+					aumentoPorcentaje = 20;
+					descuentoPorcentaje = 0;
 					break;
 				}
 				case "Cataratas" :
 				case "Cordoba" : {
-					aumento = 0;
-					descuento = 10;
+					aumentoPorcentaje = 0;
+					descuentoPorcentaje = 10;
 					break;	
 				}
 				case "Mar del plata" : {
-					aumento = 0;
-					descuento = 20;
+					aumentoPorcentaje = 0;
+					descuentoPorcentaje = 20;
 					break;
 				}
 				default: {
-					aumento = 0;
-					descuento = 0;
+					aumentoPorcentaje = 0;
+					descuentoPorcentaje = 0;
 				}
 			} 
 			break;
 		}
 		case "Verano" : {
-			case "Bariloche" : {
-					aumento = 0;
-					descuento = 20;
+			switch(destinoIngresado) {
+				case "Bariloche" : {
+					aumentoPorcentaje = 0;
+					descuentoPorcentaje = 20;
 					break;
 				}
 				case "Cataratas" :
 				case "Cordoba" : {
-					aumento = 10;
-					descuento = 0;
+					aumentoPorcentaje = 10;
+					descuentoPorcentaje = 0;
 					break;	
 				}
 				case "Mar del plata" : {
-					aumento = 20;
-					descuento = 0;
+					aumentoPorcentaje = 20;
+					descuentoPorcentaje = 0;
 					break;
 				}
 				default: {
-					aumento = 0;
-					descuento = 0;
+					aumentoPorcentaje = 0;
+					descuentoPorcentaje = 0;
 				}
 			break;
+			}			
 		}
 		case "Otoño" : {
 		}
 		case "Primavera" : {
-			case "Bariloche" :
+			switch(destinoIngresado) {
+				case "Bariloche" :
 				case "Cataratas" :
 				case "Mar del plata" : {
-					aumento = 10;
-					descuento = 0;
+					aumentoPorcentaje = 10;
+					descuentoPorcentaje = 0;
 					break;
 				}
 				case "Cordoba" : {
-					aumento = 0;
-					descuento = 0;
+					aumentoPorcentaje = 0;
+					descuentoPorcentaje = 0;
 					break;	
 				}
 				
 				default: {
-					aumento = 0;
-					descuento = 0;
+					aumentoPorcentaje = 0;
+					descuentoPorcentaje = 0;
 				}
 			break;
+			}			
 		}
 		default: {
 			mensaje = "...";
 		}
 	}
+
+	aumento = tarifa * aumentoPorcentaje / 100 ;
+	descuento = tarifa * descuentoPorcentaje / 100 ;
+
+	tarifaFinal = tarifa + aumento - descuento;
+
+	mensaje = "Ir a " + destinoIngresado + " en " + estacionIngresada + " te sale $" + tarifaFinal;
+
 	alert(mensaje);
 
 }//FIN DE LA FUNCIÓN

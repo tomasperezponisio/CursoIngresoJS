@@ -10,9 +10,10 @@ function mostrar()
 
 	mensaje = "Sos mayor de edad";
 	edadIngresada = document.getElementById('txtIdEdad').value;
+	edadIngresada = parseInt(edadIngresada);
 
 	//tomo la edad  
-	if ( edadIngresada >= 18 ) {		
+	if ( edadIngresada > 17 ) {		
 		alert(mensaje);
 	}
 	

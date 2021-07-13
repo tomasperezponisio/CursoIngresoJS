@@ -10,6 +10,7 @@ function mostrar()
 
 	mensaje = "niña bonita";
 	edadIngresada = document.getElementById('txtIdEdad').value;
+	edadIngresada = parseInt(edadIngresada);
 
 	//tomo la edad  
 	if ( edadIngresada == 15 ) {
