@@ -64,9 +64,9 @@ function mostrar()
 				default: {
 					aumentoPorcentaje = 0;
 					descuentoPorcentaje = 0;
-				}
-			break;
-			}			
+				}			
+			}
+			break;			
 		}
 		case "Otoño" : {
 		}
@@ -88,9 +88,9 @@ function mostrar()
 				default: {
 					aumentoPorcentaje = 0;
 					descuentoPorcentaje = 0;
-				}
-			break;
-			}			
+				}			
+			}
+			break;			
 		}
 		default: {
 			mensaje = "...";
