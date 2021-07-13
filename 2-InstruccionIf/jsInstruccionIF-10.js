@@ -26,7 +26,7 @@ function mostrar()
 			mensaje = "Te sacaste un: " + nota + " // Vamos, la próxima se puede";	
 		}
 	}
-	
+		
 	alert(mensaje);	
 
 }//FIN DE LA FUNCIÓN

@@ -12,9 +12,12 @@ function mostrar()
 	edadIngresada = parseInt(edadIngresada;
 
 	//tomo la edad  
-	if ( edadIngresada > 17 ) {
+	if ( edadIngresada > 17 )
+	{
 		mensaje = "Sos mayor de edad";
-	}else{
+	}
+	else
+	{
 		mensaje = "Sos menor de edad";
 	}
 
