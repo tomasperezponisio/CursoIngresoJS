@@ -7,8 +7,13 @@ function mostrar()
 {
 	var mensaje;
 	var numeroGenerado;
+	var minimo;
+	var maximo;
 
-	numeroGenerado = Math.floor(Math.random() * 10)+1;
+	minimo = 1;
+	maximo = 10;
+	
+	numeroGenerado = Math.floor(Math.random() * maximo) + minimo;
 	mensaje = "Salió el: " + numeroGenerado;
 
 	//Genero el número RANDOM entre 1 y 10 

@@ -10,9 +10,10 @@ function mostrar()
 	var mensaje;
 	var nota;
 
-	nota = Math.floor(Math.random() * 10)+1; 	
+	nota = Math.floor(Math.random() * 10) + 1; 	
 	
-	if (nota > 8) {
+	if (nota > 8)
+	{
 		mensaje = "Te sacaste un: " + nota + " // Excelente";
 	}
 	else
