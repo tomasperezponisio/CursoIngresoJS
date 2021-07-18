@@ -1,3 +1,7 @@
+/*
+autor: Tomas Perez Ponisio
+ejercicio: SWITCH 09
+*/
 function mostrar()
 {
 	var destinoIngresado;

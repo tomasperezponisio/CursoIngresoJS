@@ -1,3 +1,7 @@
+/*
+autor: Tomas Perez Ponisio
+ejercicio: SWITCH 01
+*/
 function mostrar()
 {
 	//tomo el mes

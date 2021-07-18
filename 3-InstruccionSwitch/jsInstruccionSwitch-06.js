@@ -1,3 +1,7 @@
+/*
+autor: Tomas Perez Ponisio
+ejercicio: SWITCH 06
+*/
 function mostrar()
 {
 	//tomo la hora

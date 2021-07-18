@@ -33,7 +33,8 @@ function comenzar()
 		}, 10);
 }
 
-function verificar()
+//VERSION CON IF
+/*function verificar()
 {
 	var numeroIngresado;
 	var mensaje;
@@ -66,7 +67,53 @@ function verificar()
 	{
 		mensaje = "Ingrese un número para verificar";
 	}	
+		
+	document.getElementById('txtIdIntentos').value = contadorIntentos;
 
+	setTimeout(function() // delay para actualizar el contador antes de tirar el alert
+		{
+			alert(mensaje);
+		}, 10);	
+}*/
+
+//VERSION CON SWITCH
+function verificar()
+{
+	var numeroIngresado;
+	var mensaje;
+		
+	numeroIngresado = document.getElementById('txtIdNumero').value;
+	numeroIngresado = parseInt(numeroIngresado);
+	
+	if (numeroIngresado) // si ingresaron un número para verificar sigo...
+	{
+		switch (numeroIngresado){
+			case numeroSecreto:
+			{
+				contadorIntentos += 1;		
+				mensaje = "Usted es el ganador! y en solo " + contadorIntentos + " intentos.";
+				break;
+			}
+			default:
+			{
+				if (numeroIngresado < numeroSecreto)
+				{
+					contadorIntentos += 1;
+					mensaje = "falta...";			
+				}
+				else
+				{
+					contadorIntentos += 1;	
+					mensaje = "te pasaste...";			
+				}
+			}
+		}
+	}
+	else // no ingresó número para verificar, se lo vuelvo a pedir
+	{
+		mensaje = "Ingrese un número para verificar";
+	}	
+	
 	document.getElementById('txtIdIntentos').value = contadorIntentos;
 
 	setTimeout(function() // delay para actualizar el contador antes de tirar el alert
