@@ -13,10 +13,13 @@ de no ser igual se debe informar si “falta…”  para llegar al número secre
 var numeroSecreto; 
 var contadorIntentos;
 
+juegoIniciado = false;
+
 function comenzar()
-{
-	//Genero el número RANDOM entre 1 y 100	
+{	
 	var mensaje;
+
+	juegoIniciado = true;
 
 	document.getElementById('txtIdNumero').value = ""; // reseteo el número ingresado en casa de hacer otra ronda sin darle f5
 
@@ -31,6 +34,61 @@ function comenzar()
 		{
 			alert(mensaje);
 		}, 10);
+}
+
+//VERSION CON SWITCH
+function verificar()
+{
+	if (juegoIniciado)
+	{
+		var numeroIngresado;
+		var mensaje;
+			
+		numeroIngresado = document.getElementById('txtIdNumero').value;
+		numeroIngresado = parseInt(numeroIngresado);
+		
+		if (numeroIngresado) // si ingresaron un número para verificar sigo...
+		{
+			switch (numeroIngresado){
+				case numeroSecreto:
+				{
+					contadorIntentos += 1;	
+					juegoIniciado = false;	
+					mensaje = "Usted es el ganador! y en solo " + contadorIntentos + " intentos.";
+					break;
+				}
+				default:
+				{
+					if (numeroIngresado < numeroSecreto)
+					{
+						contadorIntentos += 1;
+						mensaje = "falta...";			
+					}
+					else
+					{
+						contadorIntentos += 1;	
+						mensaje = "te pasaste...";			
+					}
+				}
+			}
+		}
+		else // no ingresó número para verificar, se lo vuelvo a pedir
+		{
+			mensaje = "Ingrese un número para verificar";
+		}	
+		
+		document.getElementById('txtIdIntentos').value = contadorIntentos;
+
+		setTimeout(function() // delay para actualizar el contador antes de tirar el alert
+			{
+				alert(mensaje);
+			}, 10);	
+	}
+	else
+	{
+		alert("Comience el juego antes de verificar");
+	}
+	
 }
 
 //VERSION CON IF
@@ -75,49 +133,3 @@ function comenzar()
 			alert(mensaje);
 		}, 10);	
 }*/
-
-//VERSION CON SWITCH
-function verificar()
-{
-	var numeroIngresado;
-	var mensaje;
-		
-	numeroIngresado = document.getElementById('txtIdNumero').value;
-	numeroIngresado = parseInt(numeroIngresado);
-	
-	if (numeroIngresado) // si ingresaron un número para verificar sigo...
-	{
-		switch (numeroIngresado){
-			case numeroSecreto:
-			{
-				contadorIntentos += 1;		
-				mensaje = "Usted es el ganador! y en solo " + contadorIntentos + " intentos.";
-				break;
-			}
-			default:
-			{
-				if (numeroIngresado < numeroSecreto)
-				{
-					contadorIntentos += 1;
-					mensaje = "falta...";			
-				}
-				else
-				{
-					contadorIntentos += 1;	
-					mensaje = "te pasaste...";			
-				}
-			}
-		}
-	}
-	else // no ingresó número para verificar, se lo vuelvo a pedir
-	{
-		mensaje = "Ingrese un número para verificar";
-	}	
-	
-	document.getElementById('txtIdIntentos').value = contadorIntentos;
-
-	setTimeout(function() // delay para actualizar el contador antes de tirar el alert
-		{
-			alert(mensaje);
-		}, 10);	
-}

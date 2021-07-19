@@ -1,6 +1,6 @@
 /*
 autor: Tomas Perez Ponisio
-ejercicio: TP 5 - Adivina el número v1.0 (IF/SWITCH)
+ejercicio: TP 6 - Adivina el número v2.0 (IF/SWITCH)
 Al comenzar el juego generamos un número 
 secreto del 1 al 100, en la pantalla del juego
  dispondremos de un cuadro de texto para ingresar
@@ -12,22 +12,27 @@ de no ser igual se debe informar si “falta…”  para llegar al número secre
 */
 var numeroSecreto; 
 var contadorIntentos;
+var juegoIniciado;
+
+juegoIniciado = false;
 
 function comenzar()
 {
 	//Genero el número RANDOM entre 1 y 100	
 	var mensaje;
 
+	juegoIniciado = true;
+
 	document.getElementById('txtIdNumero').value = ""; // reseteo el número ingresado en casa de hacer otra ronda sin darle f5
 
-	contadorIntentos = 0;
+	contadorIntentos = 0; // reseteo el contador de intentos
 	document.getElementById('txtIdIntentos').value = contadorIntentos;
 	
-	numeroSecreto = Math.floor(Math.random() * 100) + 1;
+	numeroSecreto = Math.floor(Math.random() * 100) + 1; //genero el número secreto
 
 	mensaje = "Numero secreto generado";
 
-	setTimeout(function()
+	setTimeout(function() // delay para que se actualicen los campos antes del alert
 		{
 			alert(mensaje);
 		}, 10);
@@ -35,84 +40,91 @@ function comenzar()
 
 function verificar()
 {
-	var numeroIngresado;
-	var mensaje;
-		
-	numeroIngresado = document.getElementById('txtIdNumero').value;
-	numeroIngresado = parseInt(numeroIngresado);
-	
-	if (numeroIngresado) // si ingresaron un número para verificar sigo...
+	if (juegoIniciado) 
 	{
-		if (numeroIngresado == numeroSecreto)
+		var numeroIngresado;
+		var mensaje;
+			
+		numeroIngresado = document.getElementById('txtIdNumero').value;
+		numeroIngresado = parseInt(numeroIngresado);		
+		
+		if (numeroIngresado) // si ingresaron un número para verificar sigo...
 		{
-			contadorIntentos += 1;		
-			mensaje = "Usted es el ganador! y en solo " + contadorIntentos + " intentos.";
-		}
-		else
-		{
-			if (numeroIngresado < numeroSecreto)
+			if (numeroIngresado == numeroSecreto) // adivinó
 			{
-				contadorIntentos += 1;
-				mensaje = "falta...";			
+				contadorIntentos ++;
+				juegoIniciado = false;		
+				switch (contadorIntentos) //cuando adivinó me fijo cuantos intentos tuvo
+				{
+					case 1:
+					{
+						mensaje = "Adivinó en " + contadorIntentos + " intentos . Usted es psíquico!";
+						break;
+					}
+					case 2:
+					{
+						mensaje = "Adivinó en " + contadorIntentos + " intentos . Excelente percepción";
+						break;
+					}
+					case 3:
+					{
+						mensaje = "Adivinó en " + contadorIntentos + " intentos . Esto es suerte";
+						break;
+					}
+					case 4:
+					{
+						mensaje = "Adivinó en " + contadorIntentos + " intentos . Excelente técnica";
+						break;
+					}
+					case 5:
+					{
+						mensaje = "Adivinó en " + contadorIntentos + " intentos . Usted está en la media";
+						break;
+					}
+					case 6:	{}
+					case 7:	{}
+					case 8:	{}
+					case 9:	{}
+					case 10:
+					{
+						mensaje = "Adivinó en " + contadorIntentos + " intentos . Falta técnica";
+						break;	
+					}
+					default:
+					{
+						mensaje = "Adivinó en " + contadorIntentos + " intentos . Afortunado en el amor!";
+						break;
+					}
+				}	
 			}
 			else
 			{
-				contadorIntentos += 1;	
-				mensaje = "te pasaste...";			
+				if (numeroIngresado < numeroSecreto) // no adivinó y se quedó corto
+				{
+					contadorIntentos ++;
+					mensaje = "falta...";			
+				}
+				else // no adivinó y se pasó
+				{
+					contadorIntentos ++;	
+					mensaje = "te pasaste...";			
+				}
 			}
 		}
+		else // no ingresó número para verificar, se lo vuelvo a pedir
+		{
+			mensaje = "Ingrese un número para verificar";
+		}			
+		
+		document.getElementById('txtIdIntentos').value = contadorIntentos;
+
+		setTimeout(function() // delay para actualizar el contador antes de tirar el alert
+			{
+				alert(mensaje);
+			}, 10);	
 	}
-	else // no ingresó número para verificar, se lo vuelvo a pedir
+	else
 	{
-		mensaje = "Ingrese un número para verificar";
+		alert("Comience el juego antes de verificar");
 	}	
-
-	switch (contadorIntentos) {
-		case 1:
-		{
-			mensaje = mensaje + "Usted es psíquico!";
-			break;
-		}
-		case 2:
-		{
-			mensaje = mensaje + "Excelente percepción";
-			break;
-		}
-		case 3:
-		{
-			mensaje = mensaje + "Esto es suerte";
-			break;
-		}
-		case 4:
-		{
-			mensaje = mensaje + "Excelente técnica";
-			break;
-		}
-		case 5:
-		{
-			mensaje = mensaje + "Usted está en la media";
-			break;
-		}
-		case 6:	{}
-		case 7:	{}
-		case 8:	{}
-		case 9:	{}
-		case 10:
-		{
-			mensaje = mensaje + "Falta técnica";
-			break;	
-		}
-		default:
-		{
-			mensaje = mensaje + "Afortunado en el amor!";
-			break;
-		}
-	}		
-	
-	document.getElementById('txtIdIntentos').value = contadorIntentos;
-
-	setTimeout(function() // delay para actualizar el contador antes de tirar el alert
-		{
-			alert(mensaje);
-		}, 10);	
 }
