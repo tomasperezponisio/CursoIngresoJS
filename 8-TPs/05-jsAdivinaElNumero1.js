@@ -52,7 +52,7 @@ function verificar()
 			switch (numeroIngresado){
 				case numeroSecreto:
 				{
-					contadorIntentos += 1;	
+					contadorIntentos ++;	
 					juegoIniciado = false;	
 					mensaje = "Usted es el ganador! y en solo " + contadorIntentos + " intentos.";
 					break;
@@ -61,12 +61,12 @@ function verificar()
 				{
 					if (numeroIngresado < numeroSecreto)
 					{
-						contadorIntentos += 1;
+						contadorIntentos ++;
 						mensaje = "falta...";			
 					}
 					else
 					{
-						contadorIntentos += 1;	
+						contadorIntentos ++;	
 						mensaje = "te pasaste...";			
 					}
 				}

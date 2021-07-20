@@ -50,9 +50,9 @@ function verificar()
 		
 		if (numeroIngresado) // si ingresaron un número para verificar sigo...
 		{
+			contadorIntentos ++;
 			if (numeroIngresado == numeroSecreto) // adivinó
-			{
-				contadorIntentos ++;
+			{				
 				juegoIniciado = false;		
 				switch (contadorIntentos) //cuando adivinó me fijo cuantos intentos tuvo
 				{
@@ -80,19 +80,17 @@ function verificar()
 					{
 						mensaje = "Adivinó en " + contadorIntentos + " intentos . Usted está en la media";
 						break;
-					}
-					case 6:	{}
-					case 7:	{}
-					case 8:	{}
-					case 9:	{}
-					case 10:
-					{
-						mensaje = "Adivinó en " + contadorIntentos + " intentos . Falta técnica";
-						break;	
-					}
+					}					
 					default:
 					{
-						mensaje = "Adivinó en " + contadorIntentos + " intentos . Afortunado en el amor!";
+						if (contadorIntentos < 11)
+						{
+							mensaje = "Adivinó en " + contadorIntentos + " intentos . Falta técnica";
+						}
+						else
+						{
+							mensaje = "Adivinó en " + contadorIntentos + " intentos . Afortunado en el amor!";	
+						}						
 						break;
 					}
 				}	
@@ -100,13 +98,11 @@ function verificar()
 			else
 			{
 				if (numeroIngresado < numeroSecreto) // no adivinó y se quedó corto
-				{
-					contadorIntentos ++;
+				{					
 					mensaje = "falta...";			
 				}
 				else // no adivinó y se pasó
-				{
-					contadorIntentos ++;	
+				{					
 					mensaje = "te pasaste...";			
 				}
 			}
