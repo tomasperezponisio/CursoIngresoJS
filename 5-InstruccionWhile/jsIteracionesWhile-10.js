@@ -1,4 +1,6 @@
 /*
+autor: Tomas Perez Ponisio
+ejercicio: WHILE 10
 Al presionar el botón pedir  números  
 hasta que el usuario quiera, mostrar:
 1-Suma de los negativos.
@@ -15,15 +17,71 @@ function mostrar()
 	//declarar contadores y variables 
 	var respuesta;
 	var numeroIngresado;
-	var sumaNegativos=0;
+	var sumaNegativos;
+	var sumaPositivos;
+	var contadorNegativos;
+	var contadorPositivos;
+	var contadorCeros;
+	var contadorPares;
+	var resto;
+	var promedioPositivos;
+	var promedioNegativos;
+	var diferenciaPositivosNegativos;
 
-	respuesta="si";
+	sumaNegativos = 0;
+	sumaPositivos = 0;
+	contadorNegativos = 0;
+	contadorPositivos = 0;
+	contadorCeros = 0;
+	contadorPares = 0;
+	promedioPositivos = 0;
+	promedioNegativos = 0;
+	diferenciaPositivosNegativos = 0;
 
-	while(respuesta=="si")
+	respuesta = "si";
+
+	while(respuesta == "si")
 	{
+		numeroIngresado = prompt('Ingrese un número');
+		numeroIngresado = parseInt(numeroIngresado);
+
+		resto = numeroIngresado % 2;
+
+		if (numeroIngresado > 0)
+		{
+			sumaPositivos = sumaPositivos + numeroIngresado;
+			contadorPositivos ++;
+		}
+		else
+		{
+			if (numeroIngresado < 0)
+			{
+				sumaNegativos = sumaNegativos + numeroIngresado;
+				contadorNegativos ++;
+			}
+			else
+			{
+				contadorCeros ++;
+			}
+		}
+
+		if (resto == 0)
+		{
+			contadorPares ++;
+		}
 		
-		respuesta=prompt("desea continuar?");
+		respuesta = prompt("desea continuar? si / no");
 	}//fin del while
 
-	document.write("la suma de negativos es :"+sumaNegativos);
+	promedioPositivos = sumaPositivos / contadorPositivos;
+	promedioNegativos = sumaNegativos / contadorNegativos;
+	diferenciaPositivosNegativos = sumaPositivos - sumaNegativos;
+
+	document.write("Hay " + contadorNegativos + " negativos, la suma es :" + sumaNegativos + ", y el promedio es: " + promedioNegativos);
+	document.write("<br>");
+	document.write("Hay " + contadorPositivos + " positivos, la suma es :" + sumaPositivos + ", y el promedio es: " + promedioPositivos);
+	document.write("<br>");
+	document.write("La diferencia entre positivos y negativos es: " + diferenciaPositivosNegativos);
+	document.write("<br>");
+	document.write("Hay " + contadorCeros + " ceros, y hay " + contadorPares + " números pares");
 }//FIN DE LA FUNCIÓN

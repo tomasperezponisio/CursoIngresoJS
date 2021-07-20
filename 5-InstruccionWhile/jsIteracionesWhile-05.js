@@ -13,6 +13,6 @@ function mostrar()
 	{
 		sexoIngresado = prompt("ingrese f ó m .");
 	}
-
+	
 	document.getElementById('txtIdSexo').value = sexoIngresado;
 }//FIN DE LA FUNCIÓN

@@ -16,5 +16,7 @@ function mostrar()
 	if ( edadIngresada == 15 ) {
 		alert(mensaje);
 	}
+
+	
 	
 }//FIN DE LA FUNCIÓN

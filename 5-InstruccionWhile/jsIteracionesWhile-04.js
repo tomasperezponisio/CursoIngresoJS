@@ -14,7 +14,5 @@ function mostrar()
 	{
 		numeroIngresado = prompt("ingrese un número entre 0 y 10.");
 		parseInt(numeroIngresado);	
-	}
-	
-	
+	}	
 }//FIN DE LA FUNCIÓN
