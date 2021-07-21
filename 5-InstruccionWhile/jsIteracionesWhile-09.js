@@ -22,9 +22,9 @@ function mostrar()
 
 		if (banderaDelPrimero == "es el primero")
 		{
-			numeroMaximo = numeroIngresado;
-			numeroMinimo = numeroIngresado;
 			banderaDelPrimero = "Ya no es el primero"
+			numeroMaximo = numeroIngresado;
+			numeroMinimo = numeroIngresado;			
 		}
 
 		if (numeroIngresado > numeroMaximo)
