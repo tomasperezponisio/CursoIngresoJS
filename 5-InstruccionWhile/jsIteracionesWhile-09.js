@@ -9,37 +9,50 @@ function mostrar()
 	var numeroIngresado;
 	var numeroMaximo;
 	var numeroMinimo;
-	var respuesta;
+	var seguir;
 
 	//iniciar variables
-	banderaDelPrimero = "es el primero";
-	respuesta = 'si';
+	banderaDelPrimero = true;
+	seguir = true;
 
-	while(respuesta == "si")
+	while(seguir == true)
 	{
 		numeroIngresado = prompt("Ingrese un número");
 		numeroIngresado = parseInt(numeroIngresado);
 
-		if (banderaDelPrimero == "es el primero")
+		/*
+		if (banderaDelPrimero == true) // algoritmo de maximo y minimo con banderas
 		{
-			banderaDelPrimero = "Ya no es el primero"
+			banderaDelPrimero = false;
 			numeroMaximo = numeroIngresado;
 			numeroMinimo = numeroIngresado;			
 		}
-
-		if (numeroIngresado > numeroMaximo)
+		else
 		{
-			numeroMaximo = numeroIngresado;
-		}
-		else 
-		{
-			if (numeroIngresado < numeroMinimo)
+			if (numeroIngresado > numeroMaximo)
 			{
-				numeroMinimo = numeroIngresado;
+				numeroMaximo = numeroIngresado;
+			}	
+			else 
+			{
+				if (numeroIngresado < numeroMinimo)
+				{
+					numeroMinimo = numeroIngresado;
+				}
 			}
 		}
+		*/
 
-		respuesta = prompt("desea continuar? si / no");
+		if (numeroIngresado > numeroMaximo || banderaDelPrimero == true) // algoritmo de maximo y minimo con banderas
+		{
+			numeroMaximo = numeroIngresado;			
+		}
+		if (numeroIngresado < numeroMinimo || banderaDelPrimero == true)
+		{
+			numeroMinimo = numeroIngresado;
+			banderaDelPrimero = false;
+		}
+		seguir = confirm("desea continuar?");
 	}
 
 	document.getElementById('txtIdMaximo').value = "El número máximo ingresado fue: " + numeroMaximo;
