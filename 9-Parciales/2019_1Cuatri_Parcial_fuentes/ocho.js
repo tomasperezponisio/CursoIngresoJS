@@ -28,7 +28,6 @@ function mostrar()
 	var letraDelMinimo;
 	var banderaDelPrimero;
 	var controlWhile;
-	var respuestaControl;
 	var resto;
 
 	banderaDelPrimero = true;
@@ -100,11 +99,7 @@ function mostrar()
 			contadorImpares ++;
 		}
 
-		respuestaControl = prompt("Desea continuar? si / no");
-		if (respuestaControl == "no")
-		{
-			controlWhile = false;
-		}
+		controlWhile = confirm("Desea continuar? si / no");		
 	}	
 
 	promedioPositivos = sumaPositivos / contadorPositivos;
