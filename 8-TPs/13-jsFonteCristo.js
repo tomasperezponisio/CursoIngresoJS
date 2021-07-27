@@ -100,7 +100,7 @@ function NumerosDivisibles ()
  	alert("la cantidad de divisibles es: " + contadorDivisibles);
 }
 
-function VerificarPrimo () // revisar el tema del numero q que no es primo
+function VerificarPrimo () 
 {
  	var numeroIngresado;
  	var controlPrimos;
@@ -177,9 +177,7 @@ function NumerosPrimos ()
 	 	contador = contador2;
 	 	numeroIngresado--;
  	}
- 	alert(contadorPrimos);
-
- 	
+ 	alert(contadorPrimos); 	
 }
 
 
